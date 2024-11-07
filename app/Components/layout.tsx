@@ -1,4 +1,5 @@
 'use client'
+
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Facebook, Linkedin, Menu, User, X } from "lucide-react"
 import Image from "next/image"
@@ -26,25 +27,11 @@ export default function Layout({ children }: LayoutProps) {
       "CRNA",
       "Clinical Nurse Specialist",
     ],
-    "For Locum Tenens": [
-      "Why Locum Tenens?",
-      "Pay & Benefits",
-      "Housing & Travel",
-      "Privileging & Credentialing",
-      "Your Team",
-      "FAQs",
-    ],
     "For Employers": [
       "Workforce Solutions",
       "Staffing Request",
       "Quality Assurance",
       "Client Resources",
-    ],
-    "About": [
-      "About Aya Locums",
-      "Contact",
-      "Careers",
-      "News & Updates",
     ],
   }
 
@@ -57,6 +44,12 @@ export default function Layout({ children }: LayoutProps) {
             <span className="text-xl font-bold">AfyaLink</span>
           </Link>
           <nav className="hidden md:flex gap-4 lg:gap-6">
+            <Link href="/blog" className="text-sm font-medium hover:text-blue-500 transition-colors">
+              Blog
+              <span className="ml-1 inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                New
+              </span>
+            </Link>
             {Object.entries(navItems).map(([title, items]) => (
               <div key={title} className="group relative">
                 <div className="flex items-center gap-1 text-sm font-medium cursor-pointer">
@@ -106,6 +99,12 @@ export default function Layout({ children }: LayoutProps) {
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-white overflow-y-auto">
           <div className="p-4">
+            <Link href="/blog" className="block py-2 text-lg font-semibold mb-2">
+              Blog
+              <span className="ml-2 inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                New
+              </span>
+            </Link>
             {Object.entries(navItems).map(([title, items]) => (
               <div key={title} className="mb-4">
                 <h3 className="text-lg font-semibold mb-2">{title}</h3>
@@ -197,7 +196,6 @@ export default function Layout({ children }: LayoutProps) {
                     Dentist Jobs
                   </Link>
                 </li>
-               
               </ul>
             </div>
             <div>
